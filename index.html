@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/emote.css">
+    <link rel="stylesheet" href="css/image-overlay.css">
+</head>
+<body>
+  
+   <nav class="navbar navbar-expand-lg navbar-dark" style="height: 70px; background: url('http://www.citigroup.com/citi/assets/img/brand/citi-blue-bar.jpg') repeat-x;">
+            <a href="#" class="navbar-brand mr-auto">
+                <img src="img/emoteicons/citi.PNG" alt="Citigroup Inc.">
+            </a>
+            <p class="navbar-brand my-2">Citi Emote</p>
+    </nav>
+    
+    <div id="cover">
+       <div class="container">
+            <div class="custom-row">
+            <div class="jumbotron" style="color: black">
+                <div class="">
+                    <h1 class="display-3">#Event</h1>
+                </div>
+                <div class="dropdown show" id="dropdown">
+                  <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select your Business Unit
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#" onclick="select(this)">CCET</a>
+                    <a class="dropdown-item" href="#">CMOT</a>
+                    <a class="dropdown-item" href="#">SST</a>
+                  </div>
+                </div>          
+
+                      
+                
+                <div class="card" id="emote-card">
+<!--                <div class="card-header">-->
+                <div class="lead card-header">Enjoying the event? Just let us know how are you feeling right now!</div>
+<!--                </div>-->
+                <div class="card-body">
+                <div class="row sm-auto" >
+                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                       <a href="#" ><img class="img-fluid" src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
+                       <p>Angry</p>
+                   </div>
+                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                      <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0001_2.png" alt="Sad"></a>
+                      <p>Sad</p>
+                   </div>
+                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                       <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0002_3.png" alt="Neutral"></a>
+                       <p>Neutral</p>
+                   </div>
+                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                       <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0003_4.png" alt="Happy"></a>
+                       <p>Happy</p>
+                   </div>
+                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                       <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0004_5.png" alt="Very Happy"></a>
+                       <p>Very Happy</p>
+                   </div>
+                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                       <a href="#" ><img class="img-fluid" src="img/emoteicons/emote_0005_6.png" alt="Awesome" style="margin-top: 5px"></a>
+                       <p>Awesome</p>
+                   </div>
+                </div>
+                </div>
+                </div>
+            </div>
+            </div>
+       </div> 
+   </div>
+   <script src="js/popper.min.js"></script>
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <script src="js/bootstrap.js"></script>
+   <script>
+   var dropdown = document.getElementsByClassName("dropdown-item");
+   var dropdownTitle = document.getElementById("dropdownMenuLink");
+       console.log(dropdown[0]+" "+dropdownTitle);
+   dropdown[0].onclick = function(){
+       console.log(
+       $('#dropdownMenuLink').val($(this).html()));
+       dropdownTitle.innerHTML = "CCET";
+   }
+   
+   $("#dropdown-menu a").click(function(e){
+    //e.preventDefault(); // cancel the link behaviour
+    var selText = $(this).text();
+    $("#dropdownMenuLink").text(selText);
+});
+   </script>
+</body>
+</html>
