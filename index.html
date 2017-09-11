@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="css/emote.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/image-overlay.css">
+    <script src="js/cookie.js"></script>
 </head>
 <body>
   
-   <nav class="navbar navbar-expand-lg navbar-dark" style="height: 70px; background: url('http://www.citigroup.com/citi/assets/img/brand/citi-blue-bar.jpg') repeat-x;">
+   <nav class="navbar navbar-expand-lg navbar-dark" style="height: 70px; background: url('/img/citi-blue-bar.jpg') repeat-x;">
             <a href="#" class="navbar-brand mr-auto">
                 <img src="img/emoteicons/citi.PNG" alt="Citigroup Inc.">
             </a>
@@ -45,7 +46,7 @@
                 <div class="card-body">
                 <div class="row sm-auto" >
                    <div class="col-4 col-sm-4 col-md-2 emote-btn hvr-grow">
-                       <a href="#" ><img class="img-fluid " src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
+                       <a onclick="setResponseValues()" ><img class="img-fluid " src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
                        <p>Angry</p>
                    </div>
                    <div class="col-4 col-sm-4 col-md-2 emote-btn hvr-grow">

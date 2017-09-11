@@ -2,7 +2,7 @@ function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/emote/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
@@ -28,4 +28,12 @@ function getUniqueResponseId(surveyId) {
         setCookie("uniqueResponseId",uniqueResponseId,90); // 90 day expiration for the cookie
     }
     return uniqueResponseId;
+}
+
+function setResponseValues() {
+    console.log("Arya");
+    var aa = getUniqueResponseId("Arya");
+    console.log(document.cookie);
+    console.log(aa);
+    return false;
 }
