@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
@@ -7,91 +8,192 @@
     <link rel="stylesheet" href="css/emote.css">
     <link rel="stylesheet" href="css/image-overlay.css">
 </head>
+
 <body>
-  
-   <nav class="navbar navbar-expand-lg navbar-dark" style="height: 70px; background: url('http://www.citigroup.com/citi/assets/img/brand/citi-blue-bar.jpg') repeat-x;">
-            <a href="#" class="navbar-brand mr-auto">
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="height: 70px; background: url('http://www.citigroup.com/citi/assets/img/brand/citi-blue-bar.jpg') repeat-x;">
+        <a href="#" class="navbar-brand mr-auto">
                 <img src="img/emoteicons/citi.PNG" alt="Citigroup Inc.">
             </a>
-            <p class="navbar-brand my-2">Citi Emote</p>
+        <p class="navbar-brand my-2">Citi Emote</p>
     </nav>
-    
+
     <div id="cover">
-       <div class="container">
+        <div class="container">
             <div class="custom-row">
-            <div class="jumbotron" style="color: black">
-                <div class="">
-                    <h1 class="display-3">#Event</h1>
-                </div>
-                <div class="dropdown show" id="dropdown">
-                  <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="jumbotron" style="color: black">
+                    <div class="">
+                        <h1 class="display-3" id="event-name">#Event</h1>
+                    </div>
+                    <div class="dropdown show" id="dropdown">
+                        <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                     Select your Business Unit
                   </a>
 
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#" onclick="select(this)">CCET</a>
-                    <a class="dropdown-item" href="#">CMOT</a>
-                    <a class="dropdown-item" href="#">SST</a>
-                  </div>
-                </div>          
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#" onclick="select(this)">CCET</a>
+                            <a class="dropdown-item" href="#" onclick="select(this)">CMOT</a>
+                            <a class="dropdown-item" href="#" onclick="select(this)">SST</a>
+                        </div>
+                    </div>
 
-                      
-                
-                <div class="card" id="emote-card">
-<!--                <div class="card-header">-->
-                <div class="lead card-header">Enjoying the event? Just let us know how are you feeling right now!</div>
-<!--                </div>-->
-                <div class="card-body">
-                <div class="row sm-auto" >
-                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                       <a href="#" ><img class="img-fluid" src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
-                       <p>Angry</p>
-                   </div>
-                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                      <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0001_2.png" alt="Sad"></a>
-                      <p>Sad</p>
-                   </div>
-                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                       <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0002_3.png" alt="Neutral"></a>
-                       <p>Neutral</p>
-                   </div>
-                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                       <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0003_4.png" alt="Happy"></a>
-                       <p>Happy</p>
-                   </div>
-                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                       <a href="#"><img class="img-fluid" src="img/emoteicons/emote_0004_5.png" alt="Very Happy"></a>
-                       <p>Very Happy</p>
-                   </div>
-                   <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                       <a href="#" ><img class="img-fluid" src="img/emoteicons/emote_0005_6.png" alt="Awesome" style="margin-top: 5px"></a>
-                       <p>Awesome</p>
-                   </div>
-                </div>
-                </div>
+
+
+                    <div class="card" id="emote-card">
+                        <!--                <div class="card-header">-->
+                        <div class="lead card-header">Enjoying the event? Just let us know how are you feeling right now!</div>
+                        <!--                </div>-->
+                        <div class="card-body" id="emoji-container">
+                            <div class="row sm-auto">
+                                <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                                    <a href="#" onclick="submit(this,1)"><img class="img-fluid" src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
+                                    <p>Angry</p>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                                    <a href="#" onclick="submit(this,2)"><img class="img-fluid" src="img/emoteicons/emote_0001_2.png" alt="Sad"></a>
+                                    <p>Sad</p>
+                                </div>
+                                <!-- <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                                    <a href="#" onclick="submit(this,3)"><img class="img-fluid" src="img/emoteicons/emote_0002_3.png" alt="Neutral"></a>
+                                    <p>Neutral</p>
+                                </div> -->
+                                <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                                    <a href="#" onclick="submit(this,3)"><img class="img-fluid" src="img/emoteicons/emote_0003_4.png" alt="Happy"></a>
+                                    <p>Happy</p>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                                    <a href="#" onclick="submit(this,4)"><img class="img-fluid" src="img/emoteicons/emote_0004_5.png" alt="Very Happy"></a>
+                                    <p>Very Happy</p>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-2 emote-btn">
+                                    <a href="#" onclick="submit(this,5)"><img class="img-fluid" src="img/emoteicons/emote_0005_6.png" alt="Awesome" style="margin-top: 5px"></a>
+                                    <p>Awesome</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="experience-section">
+                    </div>
+                    <div id="submit-section">
+                    </div>
                 </div>
             </div>
-            </div>
-       </div> 
-   </div>
-   <script src="js/popper.min.js"></script>
-   <script src="js/jquery-3.2.1.min.js"></script>
-   <script src="js/bootstrap.js"></script>
-   <script>
-   var dropdown = document.getElementsByClassName("dropdown-item");
-   var dropdownTitle = document.getElementById("dropdownMenuLink");
-       console.log(dropdown[0]+" "+dropdownTitle);
-   dropdown[0].onclick = function(){
-       console.log(
-       $('#dropdownMenuLink').val($(this).html()));
-       dropdownTitle.innerHTML = "CCET";
-   }
-   
-   $("#dropdown-menu a").click(function(e){
-    //e.preventDefault(); // cancel the link behaviour
-    var selText = $(this).text();
-    $("#dropdownMenuLink").text(selText);
-});
-   </script>
+        </div>
+    </div>
+    <style>
+        .arya-format {
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .arya-format button.btn {
+            padding: 5px 10px;
+            margin: 0 0 4px 0;
+        }
+
+        .shashwat-format .card-header {
+            background: none;
+        }
+
+        .shashwat-format p {
+            margin-bottom: 0;
+        }
+
+        .shashwat-format {
+            border: none;
+            border-right: 1px #cfcfcf solid;
+            border-radius: 0;
+        }
+        
+        .shashwat-format:last-child {
+            border: none;
+        }
+    </style>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        var response = {
+            "timestamp": null,
+            "eventHash": null,
+            "moodCode": null,
+            "improvement": null,
+            "uniqueId": null,
+            "bu": null,
+            "tagId":null,
+            "tags":null,
+        };
+        var tagLibrary = {
+            "negative": ["Manager", "Teammate", "Work-life Balance", "Opportunities", "Culture"],
+            "neutral": ["Tech Stack", "Flexibility", "Environment", "Infrastructure", "Culture"],
+            "positive": ["Manager", "Team", "Work", "Culture"]
+        }
+        var buName = document.getElementById("dropdownMenuLink");
+        var eventHash = document.getElementById("event-name");
+        var select = function (e) {
+            buName.innerHTML = e.innerHTML;
+        };
+        var submit = function (e, val) {
+            response.bu = buName.innerHTML;
+            response.eventHash = eventHash.innerHTML;
+            response.moodCode = val.toString();
+            response.timestamp = (new Date).toJSON();
+            console.log(response);
+            fetchData(val);
+            $('#experience-section').html(experienceHtml);
+            //$('#emoji-container').html(experienceHtml);
+            //console.log(experienceHtml);
+        };
+
+        var experienceHtml;
+        var fetchData = function (val) {
+            experienceHtml = '<div class="card shashwat-format">';
+            switch (val) {
+                case 1:
+                case 2:
+                    experienceHtml += '<div class="lead card-header">What went wrong??</div>';
+                    experienceHtml += '<div class="input-btn-group arya-format">';
+                    tagLibrary["negative"].forEach(populateTags);
+                    response.tagId = '1';
+                    break;
+                case 3:
+                case 4:
+                    experienceHtml += '<div class="lead card-header">What can be improved??</div>';
+                    experienceHtml += '<div class="input-btn-group arya-format">';
+                    tagLibrary["neutral"].forEach(populateTags);
+                    response.tagId = '2';
+                    break;
+                case 5:
+                    experienceHtml += '<div class="lead card-header">What was awesome??</div>';
+                    experienceHtml += '<div class="input-btn-group arya-format">';
+                    tagLibrary["positive"].forEach(populateTags);
+                    response.tagId = '3';
+                    break;
+            }
+
+        };
+        var selectTag = function (e) {
+            e.classList.contains('active') ? e.classList.remove('active') : e.classList.add("active");
+            var submitHtml = '<a class="btn btn-primary btn-lg" onClick="submitSurvey()" role="button">Submit</button>'
+            $('#submit-section').html(submitHtml);
+        };
+        var populateTags = function (item, index) {
+            experienceHtml += '<button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-danger tag">' + item + '</button>';
+        };
+
+        var submitSurvey = function(){
+            var tagArr=[];
+            var tags = document.getElementsByClassName('tag');
+            for(i=0;i<tags.length;i++){
+                if(tags[i].classList.contains('active')){
+                    tagArr.push(tags[i].innerHTML);
+                }
+            }
+            response.tags = tagArr;
+            console.log(response);
+        }
+    </script>
 </body>
+
 </html>
