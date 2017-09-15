@@ -47,11 +47,11 @@
                         <div class="card-body" id="emoji-container">
                             <div class="row sm-auto">
                                 <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                                    <a href="#" onclick="submit(this,1)"><img class="img-fluid" src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
+                                    <img class="img-fluid" onclick="submit(this,1)" src="img/emoteicons/emote_0000_1.png" alt="Angry">
                                     <p>Angry</p>
                                 </div>
                                 <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                                    <a href="#" onclick="submit(this,2)"><img class="img-fluid" src="img/emoteicons/emote_0001_2.png" alt="Sad"></a>
+                                    <img class="img-fluid" onclick="submit(this,2)" src="img/emoteicons/emote_0001_2.png" alt="Sad">
                                     <p>Sad</p>
                                 </div>
                                 <!-- <div class="col-4 col-sm-4 col-md-2 emote-btn">
@@ -59,15 +59,15 @@
                                     <p>Neutral</p>
                                 </div> -->
                                 <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                                    <a href="#" onclick="submit(this,3)"><img class="img-fluid" src="img/emoteicons/emote_0003_4.png" alt="Happy"></a>
+                                    <img class="img-fluid" onclick="submit(this,3)" src="img/emoteicons/emote_0003_4.png" alt="Happy">
                                     <p>Happy</p>
                                 </div>
                                 <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                                    <a href="#" onclick="submit(this,4)"><img class="img-fluid" src="img/emoteicons/emote_0004_5.png" alt="Very Happy"></a>
+                                    <img class="img-fluid" onclick="submit(this,4)" src="img/emoteicons/emote_0004_5.png" alt="Very Happy">
                                     <p>Very Happy</p>
                                 </div>
                                 <div class="col-4 col-sm-4 col-md-2 emote-btn">
-                                    <a href="#" onclick="submit(this,5)"><img class="img-fluid" src="img/emoteicons/emote_0005_6.png" alt="Awesome" style="margin-top: 5px"></a>
+                                    <img class="img-fluid" onclick="submit(this,5)" src="img/emoteicons/emote_0005_6.png" alt="Awesome" style="margin-top: 5px">
                                     <p>Awesome</p>
                                 </div>
                             </div>
@@ -75,7 +75,16 @@
                     </div>
                     <div id="experience-section">
                     </div>
+                    <div id="comments-section">
+                        <div class="card">
+                            <div class="form-group">
+                                <div class="lead card-header" for="exampleFormControlTextarea1">Comments</div>
+                                <textarea class="form-control form-control-lg" id="comment-textarea" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
                     <div id="submit-section">
+                        <button class="btn btn-primary btn-lg disabled" id="submit-survey" onClick="submitSurvey()" type="submit">Submit</button>
                     </div>
                 </div>
             </div>
@@ -105,7 +114,7 @@
             border-right: 1px #cfcfcf solid;
             border-radius: 0;
         }
-        
+
         .shashwat-format:last-child {
             border: none;
         }
@@ -121,8 +130,9 @@
             "improvement": null,
             "uniqueId": null,
             "bu": null,
-            "tagId":null,
-            "tags":null,
+            "tagId": null,
+            "tags": null,
+            "comments": null
         };
         var tagLibrary = {
             "negative": ["Manager", "Teammate", "Work-life Balance", "Opportunities", "Culture"],
@@ -139,35 +149,44 @@
             response.eventHash = eventHash.innerHTML;
             response.moodCode = val.toString();
             response.timestamp = (new Date).toJSON();
-            console.log(response);
+            // console.log(response);
             fetchData(val);
             $('#experience-section').html(experienceHtml);
-            //$('#emoji-container').html(experienceHtml);
-            //console.log(experienceHtml);
+            $('#submit-survey').removeClass('disabled');
+            //console.log(document.getElementById('submit-survey'));
         };
 
         var experienceHtml;
         var fetchData = function (val) {
-            experienceHtml = '<div class="card shashwat-format">';
+            experienceHtml = '<div class="card ">';
             switch (val) {
                 case 1:
                 case 2:
                     experienceHtml += '<div class="lead card-header">What went wrong??</div>';
                     experienceHtml += '<div class="input-btn-group arya-format">';
-                    tagLibrary["negative"].forEach(populateTags);
+                    var colorClass = "danger";
+                    tagLibrary["negative"].forEach(function (item, index) {
+                        populateTags(colorClass, item, index);
+                    });
                     response.tagId = '1';
                     break;
                 case 3:
                 case 4:
                     experienceHtml += '<div class="lead card-header">What can be improved??</div>';
                     experienceHtml += '<div class="input-btn-group arya-format">';
-                    tagLibrary["neutral"].forEach(populateTags);
+                    colorClass = "secondary";
+                    tagLibrary["neutral"].forEach(function (item, index) {
+                        populateTags(colorClass, item, index);
+                    });
                     response.tagId = '2';
                     break;
                 case 5:
                     experienceHtml += '<div class="lead card-header">What was awesome??</div>';
                     experienceHtml += '<div class="input-btn-group arya-format">';
-                    tagLibrary["positive"].forEach(populateTags);
+                    colorClass = "success";
+                    tagLibrary["positive"].forEach(function (item, index) {
+                        populateTags(colorClass, item, index);
+                    });
                     response.tagId = '3';
                     break;
             }
@@ -175,22 +194,21 @@
         };
         var selectTag = function (e) {
             e.classList.contains('active') ? e.classList.remove('active') : e.classList.add("active");
-            var submitHtml = '<a class="btn btn-primary btn-lg" onClick="submitSurvey()" role="button">Submit</button>'
-            $('#submit-section').html(submitHtml);
         };
-        var populateTags = function (item, index) {
-            experienceHtml += '<button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-danger tag">' + item + '</button>';
+        var populateTags = function (colorClass, item, index) {
+            experienceHtml += '<button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-'+colorClass+' tag">' + item + '</button>';
         };
 
-        var submitSurvey = function(){
-            var tagArr=[];
+        var submitSurvey = function () {
+            var tagArr = [];
             var tags = document.getElementsByClassName('tag');
-            for(i=0;i<tags.length;i++){
-                if(tags[i].classList.contains('active')){
+            for (i = 0; i < tags.length; i++) {
+                if (tags[i].classList.contains('active')) {
                     tagArr.push(tags[i].innerHTML);
                 }
             }
             response.tags = tagArr;
+            response.comments = document.getElementById("comment-textarea").value;
             console.log(response);
         }
     </script>

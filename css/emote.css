@@ -37,10 +37,10 @@ body {
     margin: auto;
 }
 
-.jumbotron button {
+/* .jumbotron button {
     padding: 0;
     background-color: rgba(0,0,0,0);
-}
+} */
 
 .jumbotron button img {
     width: 100%;
