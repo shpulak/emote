@@ -75,16 +75,16 @@
                     </div>
                     <div id="experience-section">
                     </div>
-                    <div id="comments-section">
-                        <div class="card">
+                    <div id="comment-section">
+                        <!-- <div class="card">
                             <div class="form-group">
-                                <div class="lead card-header" for="exampleFormControlTextarea1">Comments</div>
+                                <div class="lead card-header" for="comment-textarea">Comments</div>
                                 <textarea class="form-control form-control-lg" id="comment-textarea" rows="3"></textarea>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div id="submit-section">
-                        <button class="btn btn-primary btn-lg disabled" id="submit-survey" onClick="submitSurvey()" type="submit">Submit</button>
+                        <button class="btn btn-primary" id="submit-survey" onClick="submitSurvey()" type="button" disabled="disabled">Submit</button>
                     </div>
                 </div>
             </div>
@@ -118,6 +118,7 @@
         .shashwat-format:last-child {
             border: none;
         }
+
     </style>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -145,14 +146,13 @@
             buName.innerHTML = e.innerHTML;
         };
         var submit = function (e, val) {
-            response.bu = buName.innerHTML;
-            response.eventHash = eventHash.innerHTML;
             response.moodCode = val.toString();
             response.timestamp = (new Date).toJSON();
             // console.log(response);
             fetchData(val);
             $('#experience-section').html(experienceHtml);
-            $('#submit-survey').removeClass('disabled');
+            $('#comment-section').html(commentSection);
+            document.getElementById('submit-survey').disabled=false;
             //console.log(document.getElementById('submit-survey'));
         };
 
@@ -172,7 +172,7 @@
                     break;
                 case 3:
                 case 4:
-                    experienceHtml += '<div class="lead card-header">What can be improved??</div>';
+                    experienceHtml += '<div class="lead card-header">What could be improved??</div>';
                     experienceHtml += '<div class="input-btn-group arya-format">';
                     colorClass = "secondary";
                     tagLibrary["neutral"].forEach(function (item, index) {
@@ -199,6 +199,10 @@
             experienceHtml += '<button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-'+colorClass+' tag">' + item + '</button>';
         };
 
+        var commentSection = '<div class="card"><div class="form-group">';
+        commentSection += '<div class="lead card-header" for="comment-textarea">Comments</div>';
+        commentSection += '<textarea class="form-control form-control-lg" id="comment-textarea" rows="3"></textarea></div></div>';
+
         var submitSurvey = function () {
             var tagArr = [];
             var tags = document.getElementsByClassName('tag');
@@ -208,6 +212,8 @@
                 }
             }
             response.tags = tagArr;
+            response.bu = buName.innerHTML;
+            response.eventHash = eventHash.innerHTML;
             response.comments = document.getElementById("comment-textarea").value;
             console.log(response);
         }
