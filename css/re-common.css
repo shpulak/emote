@@ -1,0 +1,83 @@
+header {
+    height: 72px;
+    background: url('../img/citi-blue-bar.jpg') repeat-x;
+    padding: 12px 18px;
+}
+
+header a.e-brand-name {
+    margin-right: 0;
+}
+
+.e-main-content {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background: url('../img/stars.jpg') center center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.e-main-area {
+    width: 80%;
+    margin: auto;
+    background: #fafafa;
+    padding: 24px;
+    border-radius: 4px;
+}
+
+.e-main-area>section {
+    margin-bottom: 24px;
+
+}
+
+.e-tag-group {
+    text-align: center;
+}
+
+.e-tag {
+    margin-right: 0.1em;
+    margin-bottom: 0.4em;
+    cursor: pointer;
+}
+
+.e-tag:focus {
+    box-shadow: none;
+}
+
+.e-comment-box {
+    border: none;
+    width: 99%;
+    margin: auto;
+    resize: none;
+    font-size: 1em;
+}
+
+
+
+.e-emote-btn {
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.e-emote-btn img {
+    max-height: 124px;
+}
+
+
+#comments-section .card-header span {
+    font-size: 0.7em;
+    color: #888;
+}
+
+
+#bu-section .btn-group .dropdown-toggle, #bu-section .btn-group .dropdown-menu {
+    cursor: pointer;
+}
+
+#submit-section {
+    text-align: center;
+}
+
+#submit-survey {
+    cursor: pointer;
+}

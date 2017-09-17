@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/emote.css"> -->
+    <link rel="stylesheet" href="css/hover.css">
+    <!-- <link rel="stylesheet" href="css/image-overlay.css"> -->
+    <!-- new css start -->
+    <link rel="stylesheet" href="css/re-common.css">
+    <!-- new css end -->
+    <script src="js/cookie.js"></script>
+</head>
+
+<body>
+
+    <header class="navbar navbar-expand-lg navbar-dark">
+        <a href="http://www.citigroup.net/" class="navbar-brand mr-auto">
+            <img src="img/citi-logo.png" alt="Citigroup Inc.">
+        </a>
+        <a href="" class="navbar-brand e-brand-name">Citi Emote</a>
+    </header>
+
+    <div class="e-main-content">
+        <div class="">
+            <div class="e-main-area">
+                <section id="bu-section">
+                    <h1 class="display-3">#Event</h1>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select your Business Unit
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" onclick="select(this)">Action</a>
+                            <a class="dropdown-item" onclick="select(this)">Another action</a>
+                            <a class="dropdown-item" onclick="select(this)">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" onclick="select(this)">Separated link</a>
+                        </div>
+                    </div>
+
+
+
+                </section>
+
+
+
+
+                <section class="card" id="emote-card">
+                    <div class="lead card-header">Enjoying the event? Just let us know how are you feeling right now!</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-2 ml-sm-auto mr-sm-auto e-emote-btn hvr-grow">
+                                <a onclick="setResponseValues()"><img class="img-fluid" src="img/emoteicons/emote_0000_1.png" alt="Angry"></a>
+                                <p>Angry</p>
+                            </div>
+                            <div class="col-sm-5 col-md-2 ml-sm-auto mr-sm-auto e-emote-btn hvr-grow">
+                                <a onclick="setResponseValues()"><img class="img-fluid" src="img/emoteicons/emote_0001_2.png" alt="Sad"></a>
+                                <p class="e-emote-desc">Sad</p>
+                            </div>
+                            <div class="col-sm-5 col-md-2 ml-sm-auto mr-sm-auto e-emote-btn hvr-grow">
+                                <a onclick="setResponseValues()"><img class="img-fluid" src="img/emoteicons/emote_0003_4.png" alt="Happy"></a>
+                                <p>Happy</p>
+                            </div>
+                            <div class="col-sm-5 col-md-2 ml-sm-auto mr-sm-auto e-emote-btn hvr-grow">
+                                <a onclick="setResponseValues()"><img class="img-fluid" src="img/emoteicons/emote_0004_5.png" alt="Very Happy"></a>
+                                <p>Very Happy</p>
+                            </div>
+                            <div class="col-sm-5 col-md-2 ml-sm-auto mr-sm-auto e-emote-btn hvr-grow">
+                                <a onclick="setResponseValues()"><img class="img-fluid" src="img/emoteicons/emote_0005_6.png" alt="Awesome" style="margin-top: 5px"></a>
+                                <p>Awesome</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card " id="experience-section">
+                    <div class="lead card-header">What can be improved??</div>
+                    <div class="card-body">
+                        <div class="input-btn-group e-tag-group">
+                            <button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-secondary tag e-tag">Tech Stack</button>
+                            <button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-secondary tag e-tag">Flexibility</button>
+                            <button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-secondary tag e-tag">Environment</button>
+                            <button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-secondary tag e-tag">Infrastructure</button>
+                            <button type="button" onclick="selectTag(this)" class="btn btn-lg btn-outline-secondary tag e-tag">Culture</button>
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <section id="comments-section" class="card">
+                    <div class="form-group">
+                        <div class="lead card-header" for="exampleFormControlTextarea1">Comments  <span>(Please refrain from writing any sensitive or PII information here)</span></div>
+                        <textarea class="form-control form-control-lg e-comment-box" id="comment-textarea" rows="4"></textarea>
+                    </div>
+                </section>
+
+                <div id="submit-section">
+                    <button class="btn btn-primary btn-lg disabled" id="submit-survey" onclick="submitSurvey()" type="submit">Submit</button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-item");
+        var dropdownTitle = document.getElementById("dropdownMenuLink");
+        console.log(dropdown[0] + " " + dropdownTitle);
+        dropdown[0].onclick = function () {
+            console.log(
+                $('#dropdownMenuLink').val($(this).html()));
+            dropdownTitle.innerHTML = "CCET";
+        }
+
+        $("#dropdown-menu a").click(function (e) {
+            //e.preventDefault(); // cancel the link behaviour
+            var selText = $(this).text();
+            $("#dropdownMenuLink").text(selText);
+        });
+    </script>
+</body>
+
+</html>
